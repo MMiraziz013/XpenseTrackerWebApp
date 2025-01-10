@@ -1,1 +1,14 @@
-﻿
+﻿.dailyBox {
+    margin-top: 5px;
+    height: 60vh;
+    background-color: cadetblue;
+    width: 150vh;
+    border-radius: 15px;   
+}
+
+.backgroundBox {
+    height: 20vh;
+    width: 150vh;
+    background-color: darkslategray;
+    border-radius:15px;
+}

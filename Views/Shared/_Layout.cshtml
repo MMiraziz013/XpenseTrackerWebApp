@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/sidebar.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/bootstrap.css" asp-append-version="true"/>
+    @* <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/28.1.33/material.css" /> *@
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/28.1.33/tailwind.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/XpenseTrackerWebApp.styles.css" asp-append-version="true" />
-    
+    <script src="https://cdn.syncfusion.com/ej2/28.1.33/dist/ej2.min.js"></script>
 </head> 
-<body>
+<body class="e-bigger">
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
@@ -34,10 +36,14 @@
               </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col col-md-10">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
     </div>
 
     <footer class="border-top footer text-muted">
@@ -49,5 +55,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <ejs-scripts></ejs-scripts>
 </body>
 </html>

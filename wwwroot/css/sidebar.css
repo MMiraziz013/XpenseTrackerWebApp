@@ -10,13 +10,13 @@
     left: 0;
     width: 240px;
     position: fixed;
-    top: 73px;
+    top: 84px;
     bottom: 0;
-    height: calc(100vh - 83px - 50px); /* Adjust height minus navbar and footer */
+    height: calc(100vh - 95px - 50px); /* Adjust height minus navbar and footer */
     overflow-y: auto;
     overflow: hidden;
     transition: width 0.3s ease;
-    background-color: lightslategray;
+    background-color: #837268;
     overflow-x: hidden;
     border-radius: 5px;
     opacity: 99%;
