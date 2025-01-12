@@ -17,14 +17,58 @@ html {
   min-height: 100%;
 }
 
+
+/*.inter-<uniquifier > {
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+}*/
+
 body {
     margin-bottom: 60px;
-    background-color: #dbbeae;
+    background-color: #008744;
 }
 
 .e-bigger {
     font-size: x-large;
 }
+
+/*Grid*/
+.e-grid {
+    border: 0;
+    border-radius: 5px;
+}
+
+    .e-grid .e-gridcontent, .e-grid .e-table {
+        background-color: #ffffff; /*Tavble row background colors*/
+    }
+
+    .e-grid .e-gridheader {
+        border: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        padding: 10px;
+        background-color: #ffffff; /*header background color*/
+    }
+
+        .e-grid .e-gridheader .e-headercell {
+            background-color: #ffa700; /*header foreground color*/
+            
+        }
+
+    .e-grid .e-gridpager {
+        background-color: #1a222b;
+    }
+
+    .e-grid .e-pagercontainer {
+        border: none;
+        background-color: #1a222b;
+    }
+
+    .e-grid .e-content table {
+        padding: 0px 10px;
+    }
 
 /*Radio button group */
 .e-btn-group.custom-rbt-group {
@@ -54,3 +98,4 @@ body {
     background-color: #b29a8e;
     
 }
+
