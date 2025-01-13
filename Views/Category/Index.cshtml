@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<XpenseTrackerWebApp.Models.Category>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["PageTitle"] = "Categories";
+    ViewData["PageActionText"] = "+ New Category";
+    ViewData["PageActionUrl"] = "/Category/AddOrEdit";
 }
 
-<h1>All Current Expenses</h1>
-
-<p>
-    <a asp-action="AddOrEdit">Create New</a>
-</p>
 <div class="sideBar" id="sideBar">
     <div class="sideBarBtn">
         <button class="Btn" asp-controller="Category" asp-action="AddOrEdit">Daily Expenses</button> @* Edit the button link!!!*@
@@ -53,8 +50,15 @@
 
 <script id="actionColumnTemplate" type="text/x-template">
     <div class="d-flex flex-row justify-content-start">
-        <a class="btn btn-sm" href="/Category/AddOrEdit/${CategoryId}">
+        <a class="btn btn-sm no-a-decoration" href="/Category/AddOrEdit/${CategoryId}">
             <i class="fa-solid fa-pen fa-lg"></i>
         </a>
+        <form action="/Category/Delete/${CategoryId}" method="post">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-sm btn-link no-a-decoration"
+            onclick="return confirm(&quot;Are you sure to delete this record?&quot;)">
+                <i class="fa-solid fa-trash fa-lg text-danger"></i>
+            </button>
+        </form>
     </div>
 </script>

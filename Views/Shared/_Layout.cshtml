@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - XpenseTrackerWebApp</title>
+    <title>XpenseTrackerWebApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/sidebar.css" asp-append-version="true" />
@@ -41,6 +41,26 @@
         <div class="row justify-content-center">
             <div class="col col-md-10">
                 <main role="main" class="pb-3">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="d-flex flex-column mb-5">
+                                <div class="d-flex mb-1">
+                                    <div class="flex-grow-1">
+                                        <h3 class="fw-bold">@ViewData["PageTitle"]</h3>
+                                        
+                                    </div>
+                                    <div>
+                                        @if(ViewData["PageActionText"] != null)
+                                        {
+                                            <a class="btn btn-success" href="@ViewData["PageActionUrl"]" style="background-color:#0057e7 !important; color:white;">
+                                                @ViewData["PageActionText"]
+                                            </a>
+                                        }
+                                    </div>
+                                </div>
+                                <ejs-breadcrumb id="breadcrumb" separatorTemplate="@Html.Raw("<span class='fa-solid fa-angle-right'></span>")"></ejs-breadcrumb>
+                        </div>
+                    </div>
                     @RenderBody()
                 </main>
             </div>
@@ -57,5 +77,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
     <ejs-scripts></ejs-scripts>
+    
 </body>
 </html>

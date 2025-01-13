@@ -34,6 +34,17 @@ body {
     font-size: x-large;
 }
 
+.btn:focus, .btn:active{
+    outline:none !important;
+    box-shadow: none !important;
+}
+
+/*Hyperlink*/
+.no-a-decoration, .no-a-decoration:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
 /*Grid*/
 .e-grid {
     border: 0;
@@ -89,13 +100,12 @@ body {
 .e-btn-group.custom-rbt-group input:checked + label.e-btn {
     background-color: #212b36;
     color: white;
-    border: 1px solid #fff;
+    border: 1px solid #ffa700;
 }
 
 /*Widget*/
 .widget {
     border-radius: 1rem;
-    background-color: #b29a8e;
-    
+    background-color: #0057e7;
 }
 
