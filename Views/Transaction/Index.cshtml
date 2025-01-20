@@ -1,0 +1,26 @@
+﻿@model IEnumerable<XpenseTrackerWebApp.Models.Transaction>
+
+@{
+    ViewData["PageTitle"] = "Transactions";
+    ViewData["PageActionText"] = "+ New Transaction";
+    ViewData["PageActionUrl"] = "/Transaction/AddOrEdit";
+}
+
+<div class="row">
+    <div class="col-md-7">
+        <ejs-grid id="transactions" dataSource="@Model" gridLines="None" allowSorting="true" allowPaging="true">
+            <e-grid-columns>
+                <e-grid-column headerText="Category" field="CategoryTitleWithIcon"></e-grid-column>
+                <e-grid-column headerText="Date" field="Date" width="150px"
+                format="MMM-dd-yy" type="date"></e-grid-column>
+                <e-grid-column headerText="Amount" field="FormattedAmount" width="100px"></e-grid-column>
+            </e-grid-columns>
+        </ejs-grid>
+    </div>
+    @*Additional block of something on the right side of the table (to fill up the space if needed)*@
+    @*     <div class="col-md-5">
+    <div class="widget h-100 justify-content-center align-items-center" style="background-color: #212b36">
+    <i class="fa-solid fa-shapes fa-2xl"></i>
+    </div>
+    </div> *@
+</div>
