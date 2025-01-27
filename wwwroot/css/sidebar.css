@@ -42,7 +42,10 @@
 .Btn {
     background-color: #0057e7;
     border-radius: 15px;
+    border-color:black;
     width: 200px;
+    text-decoration:none;
+    
 }
 
 .sideBar:hover .sideBarBtn {

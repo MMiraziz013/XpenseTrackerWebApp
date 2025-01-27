@@ -4,15 +4,23 @@
 // Write your JavaScript code.
 
             
-//const sidebar = document.getElementById('sideBar');
 
-//// Add delay before collapsing the sidebar
-//sidebar.addEventListener('mouseleave', () => {
-//    setTimeout(() => {
-//        sidebar.classList.add('collapsed');
-//    }, 300); // Collapse after 300ms
-//});
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.Btn');
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            const controller = this.getAttribute('data-controller');
+            const action = this.getAttribute('data-action');
 
-//sidebar.addEventListener('mouseenter', () => {
-//    sidebar.classList.remove('collapsed');
-//});
+            console.log(`Button clicked: Controller=${controller}, Action=${action}`);
+
+            if (controller && action) {
+                window.location.href = `/${controller}/${action}`;
+            } else {
+                console.error("Controller or action attribute is missing!");
+            }
+        });
+    });
+});
+
+console.log("site.js is loaded and running");

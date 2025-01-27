@@ -8,6 +8,7 @@ namespace XpenseTrackerWebApp.Models
         [Key]
         public int TransactionId { get; set; }
 
+        [Range(1, int.MaxValue, ErrorMessage = "Please choose a category")]
         public int CategoryId { get; set; }
 
         public Category? Category { get; set; }

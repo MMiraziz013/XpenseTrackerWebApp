@@ -6,14 +6,31 @@
     ViewData["PageActionUrl"] = "/Transaction/AddOrEdit";
 }
 
+<div class="sideBar" id="sideBar">
+    <div class="sideBarBtn">
+        <button class="Btn" data-controller="Category" data-action="Index">Categories</button>
+    </div>
+    <div class="sideBarBtn">
+        <button class="Btn" data-controller="Transaction" data-action="Index">Transactions</button>
+    </div>
+    <div class="sideBarBtn">
+        <button class="Btn" data-controller="Dashboard" data-action="Index">Ex-Home Page</button>
+    </div>
+    <div class="sideBarBtn">
+        <button class="Btn" data-controller="Transaction" data-action="Index">Transactions</button>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-7">
         <ejs-grid id="transactions" dataSource="@Model" gridLines="None" allowSorting="true" allowPaging="true">
+            <e-grid-pagesettings pageSize="5"></e-grid-pagesettings>
             <e-grid-columns>
                 <e-grid-column headerText="Category" field="CategoryTitleWithIcon"></e-grid-column>
                 <e-grid-column headerText="Date" field="Date" width="150px"
-                format="MMM-dd-yy" type="date"></e-grid-column>
+                format="MMM-dd-yy" type="date" textAlign="Left"></e-grid-column>
                 <e-grid-column headerText="Amount" field="FormattedAmount" width="100px"></e-grid-column>
+                <e-grid-column headerText="Actions" template="#actionColumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
     </div>
@@ -24,3 +41,18 @@
         </div>
     </div>
 </div>
+
+<script id="actionColumnTemplate" type="text/x-template">
+    <div class="d-flex flex-row justify-content-start">
+        <a class="btn btn-sm no-a-decoration" href="/Transaction/AddOrEdit/${TransactionId}">
+            <i class="fa-solid fa-pen fa-lg"></i>
+        </a>
+        <form action="/Transaction/Delete/${TransactionId}" method="post">
+    @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-sm btn-link no-a-decoration"
+            onclick="return confirm(&quot;Are you sure to delete this record?&quot;)">
+                <i class="fa-solid fa-trash fa-lg text-danger"></i>
+            </button>
+        </form>
+    </div>
+</script>
