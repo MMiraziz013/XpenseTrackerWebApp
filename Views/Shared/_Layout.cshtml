@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="~/XpenseTrackerWebApp.styles.css" asp-append-version="true" />
     <script src="https://cdn.syncfusion.com/ej2/28.1.33/dist/ej2.min.js"></script>
 </head> 
-<body class="e-bigger">
+<body >
     <header>
-        <nav class="navbar navbar-expand-lg bg-light">
+        <nav class="navbar navbar-expand-lg bg-light" style="padding: 5px !important;">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">XpenseTracker WebApp</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@
               </div>
         </nav>
     </header>
-    <div class="container mt-5">
+    <div class="container mt-3">
         <div class="row justify-content-center">
             <div class="@(ViewData["isDashboard"] == null?"col-md-10":"col-md-12")>
                 <main role="main" class="pb-3">
@@ -72,11 +72,11 @@
         </div>
     </div>
 
-    <footer class="border-top footer text-muted">
+@*     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2025 - XpenseTrackerWebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
+    </footer> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

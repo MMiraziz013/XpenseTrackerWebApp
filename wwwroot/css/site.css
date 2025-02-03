@@ -26,8 +26,8 @@ html {
 }*/
 
 body {
-    margin-bottom: 60px;
-    background-color: #008744;
+    
+    background-color: #7baede;
 }
 
 .e-bigger {
@@ -52,7 +52,7 @@ body {
 }
 
     .e-grid .e-gridcontent, .e-grid .e-table {
-        background-color: #ffffff; /*Tavble row background colors*/
+        background-color: #d4f2ff; /*Tavble row background colors*/
     }
 
     .e-grid .e-gridheader {
@@ -64,8 +64,7 @@ body {
     }
 
         .e-grid .e-gridheader .e-headercell {
-            background-color: #ffa700; /*header foreground color*/
-            
+            background-color: #9dcdef; /*header foreground color*/
         }
 
     .e-grid .e-gridpager {
@@ -112,11 +111,11 @@ body {
 /*Widget*/
 .widget {
     border-radius: 1rem;
-    background-color: #0057e7;
+    background-color: #d4f2ff;
 }
 
     .widget.summary > div:first-child {
-        background-color: #222b33;
+        background-color: #3055a3;
         padding: 1rem;
         border-top-left-radius: 1rem;
         border-bottom-left-radius: 1rem;
@@ -141,3 +140,10 @@ body {
     .widget.chart {
         padding: 5px;
     }
+
+/*@media screen and (max-width: 1560px) {*/ /* Approximation for a 15.6-inch screen */
+    /*.widget.chart {
+        padding: 5px;
+        height: 540px;*/ /* Adjust to your desired smaller height */
+    /*}
+}*/
