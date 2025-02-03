@@ -24,20 +24,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 console.log("site.js is loaded and running");
-
-document.addEventListener('DOMContentLoaded', () => {
-    const sideBar = document.getElementById('sideBar');
-
-    // Function to update the sidebar height
-    const updateSidebarHeight = () => {
-        const navbarHeight = document.querySelector('nav').offsetHeight; // Get navbar height
-        const viewportHeight = window.innerHeight; // Get viewport height
-        sideBar.style.height = `${viewportHeight - navbarHeight}px`; // Calculate sidebar height
-    };
-
-    // Run on page load
-    updateSidebarHeight();
-
-    // Update on window resize
-    window.addEventListener('resize', updateSidebarHeight);
-});
