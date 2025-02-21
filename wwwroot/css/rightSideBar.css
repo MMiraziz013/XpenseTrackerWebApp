@@ -1,0 +1,142 @@
+﻿.rightSideBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Keep this for horizontal centering of buttons */
+    /* Remove justify-content: flex-start; */ /* Remove this line */
+    margin-right: 0;
+    right: 0;
+    width: 100px;
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    height: 100vh;
+    overflow-y: auto;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    background-color: #edf2fb;
+    overflow-x: hidden;
+    border-radius: 5px;
+    opacity: 99%;
+    z-index: 999;
+    /*    box-shadow: 2.0px 4.0px 4.0px hsl(0deg 0% 0% / 0.6);*/
+}
+
+.sideBarBtn {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: font-size 0.3s ease, padding 0.3s ease;
+}
+
+.Btn {
+    background-color: #5d7bd5;
+    width: 100px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between icon and text */
+    padding: 10px;
+    border: none;
+    background-color: inherit;
+    font-size: 15px;
+    color: #5d7bd5;
+}
+
+./*buttonText :hover {
+    background-color: lightgray;
+    transition: font-size 0.3s ease, padding 0.3s ease;
+}*/
+
+/* This ensures buttons stay in place */
+.sideBarContent {
+    flex-grow: 1; /* Takes up all available space */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center; /* Center buttons horizontally */
+    justify-content: center; /* Center buttons vertically */
+}
+
+.buttonBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: font-size 0.3s ease, padding 0.3s ease;
+}
+
+.buttonText {
+    text-align: center;
+    font-family: 'Helvetica';
+    font-size: 18px;
+    color: #5d7bd5;
+    cursor: pointer;
+
+}
+
+.bottomName {
+    width: 100%;
+    text-align: center;
+    font-family: 'Helvetica';
+    font-size: 18px;
+    color: #5d7bd5;
+    padding: 10px 0;
+    bottom: 0;
+    margin-top: auto;
+}
+
+
+/*Icons Animation Code*/
+.rightSideBar .Btn i { /* Target the icons within the buttons */
+    transition: transform 0.2s ease; /* Add a transition for smooth scaling */
+    font-size: 20px; /* Base font size */
+}
+
+.rightSideBar .Btn:hover i {
+    transform: scale(1.4); /* Scale up on hover (adjust 1.2 as needed) */
+    /* If you want to change the color on hover as well */
+    /* color: #your-hover-color; */
+}
+
+.rightSideBar .Btn { /* Target the buttons */
+    transition: background-color 0.2s ease; /* Add a transition for smooth background color change if needed */
+}
+
+    .rightSideBar .Btn:hover {
+        /* If you want to change the background color on hover */
+        /* background-color: #your-hover-background-color; */
+    }
+
+
+    /* Optional: If you want to also scale the text or other content in the button */
+    .rightSideBar .Btn * { /* * selects all children of the button */
+        transition: transform 0.2s ease; /* Add transition to all elements within the button */
+    }
+
+    .rightSideBar .Btn:hover * {
+        transform: scale(1.05); /* Slightly scale up all elements */
+    }
+
+/* Or if you only want to scale the text */
+.rightSideBar .buttonText {
+    transition: transform 0.2s ease; /* Add transition to the text */
+}
+
+.rightSideBar .Btn:hover .buttonText {
+    transform: scale(1.05); /* Slightly scale up the text */
+}

@@ -6,23 +6,62 @@
     ViewData["PageActionUrl"] = "/Transaction/AddOrEdit";
 }
 
-<div class="sideBar" id="sideBar" style="z-index:1">
-    <div class="sideBarBtn">
-        <button class="Btn" data-controller="Category" data-action="Index">Categories</button>
+<div class="sideBar" id="sideBar">
+    <div class="sideBarContent">
+        <button class="Btn" data-controller="Category" data-action="Index" style="border:none; background-color:inherit; font-size: 20px; color:#edf2fb;">
+            <i class="fas fa-folder"></i> <span class="btnText">Categories</span>
+        </button>
+        <p class="buttonText"> </p>
+
+        <button class="Btn" data-controller="Transaction" data-action="Index" style="border:none; background-color:inherit; font-size: 20px; color:#edf2fb;">
+            <i class="fas fa-exchange-alt"></i> <span class="btnText">Transactions</span>
+        </button>
+        <p class="buttonText"> </p>
+
+        <button class="Btn" data-controller="Dashboard" data-action="Index" style="border:none; background-color:inherit; font-size: 20px; color: #edf2fb;">
+            <i class="fas fa-home" style="font-size: 20px;"></i> <span class="btnText">Dashboard</span>
+        </button>
+
     </div>
-    <div class="sideBarBtn">
-        <button class="Btn" data-controller="Transaction" data-action="Index">Transactions</button>
+
+
+    <!-- Application Name at Bottom -->
+    <div class="appName">
+        <span class="shortName">XPT</span>
+        <span class="fullName">XPenseTracker</span>
     </div>
-    <div class="sideBarBtn">
-        <button class="Btn" data-controller="Dashboard" data-action="Index">Ex-Home Page</button>
+</div>
+
+<div class="rightSideBar" id="rightSideBar">
+    <div class="sideBarContent">
+
+        <button class="Btn" data-controller="Transaction" data-action="Index">
+            <i class="fa-solid fa-calendar-day" style="font-size: 25px;"></i>
+        </button>
+        <p class="buttonText">1 Day</p>
+
+        <button class="Btn" data-controller="Dashboard" data-action="Index">
+            <i class="fa-solid fa-calendar-week" style="font-size: 25px;"></i>
+        </button>
+        <p class="buttonText">1 Week</p>
+
+        <button class="Btn" data-controller="Dashboard" data-action="Index">
+            <i class="fa-solid fa-calendar-days" style="font-size: 25px;"></i>
+        </button>
+        <p class="buttonText">1 Month</p>
     </div>
-    <div class="sideBarBtn">
-        <button class="Btn" data-controller="Transaction" data-action="Index">Transactions</button>
+
+    <!--Settings Button Container-->
+    <div class="bottomName">
+        <button class="Btn" data-controller="Dashboard" data-action="Index">
+            <i class="fa-solid fa-gear" style="font-size: 25px;"></i>
+        </button>
+        <span class="shortName">Settings</span>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-7">
+    <div class="widget col-md-7">
         <ejs-grid id="transactions" dataSource="@Model" gridLines="None" allowSorting="true" allowPaging="true">
             <e-grid-pagesettings pageSize="5"></e-grid-pagesettings>
             <e-grid-columns>
@@ -36,7 +75,7 @@
     </div>
     <div class="col-md-5 d-flex justify-content-center align-items-center">
         <div class="widget h-100 d-flex justify-content-center align-items-center"
-             style="background-color: #3055a3; width:500px !important;">
+             style="background-color: #e2eafc; width:500px !important;">
             <img src="~/media/payment.png" class="indexIcon" />
         </div>
     </div>

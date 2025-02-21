@@ -1,43 +1,42 @@
-﻿body {
-}
-
-.sideBar {
+﻿.sideBar {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: center; /* Keep this for horizontal centering of buttons */
     margin-left: 0;
     left: 0;
     width: 240px;
     position: fixed;
-    top: 50px;
+    top: 0px;
     bottom: 0;
-    height: calc(100vh - 50px - 10px); /* Adjust height minus navbar and footer */
+    height: 100vh;
     overflow-y: auto;
     overflow: hidden;
     transition: width 0.3s ease;
-    background-color: #3055a3;
+    background-color: #5d7bd5;
     overflow-x: hidden;
     border-radius: 5px;
     opacity: 99%;
-    z-index:999;
+    z-index: 999;
+/*    box-shadow: 2.0px 4.0px 4.0px hsl(0deg 0% 0% / 0.6);*/
+
 }
 
-.sideBar:hover {
-    width: 240px;
-}
+    .sideBar:hover {
+        width: 240px;
+    }
 
 .sideBarBtn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     padding: 15px;
     border: none;
     background: none;
     color: white;
-    text-align: left;
     font-size: 18px;
     cursor: pointer;
-    transition: font-size 0.3s ease, padding 0.3s ease; /* Smooth resizing of text */
+    transition: font-size 0.3s ease, padding 0.3s ease;
 }
 
 .Btn {
@@ -46,30 +45,103 @@
     border-color: black;
     width: 200px;
     text-decoration: none;
-}
-
-.sideBar:hover .sideBarBtn {
-    font-size: 18px;
-    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between icon and text */
+    padding: 10px;
 }
 
 .sideBar:not(:hover) {
-    width: 60px;
-    opacity:100%;
+    width: 100px;
 }
 
-    .sideBar:not(:hover) .sideBarBtn {
-        font-size: 0px;
-        padding: 10px;
+    /* Hide text when collapsed */
+    .sideBar:not(:hover) .btnText {
+        display: none;
     }
 
-        .sideBar:not(:hover) .sideBarBtn::after {
-            content: attr(data-title);
-            font-size: 14px;
-            color: white;
-            padding-left: 10px;
+    /* Center icons when collapsed */
+    .sideBar:not(:hover) .Btn {
+        justify-content: center;
+    }
+
+        /* Make icons slightly bigger when collapsed */
+        .sideBar:not(:hover) .Btn i {
+            font-size: 20px;
         }
 
-.sideBar.collapsed {
-    width: 60px;
+/* Show text again when sidebar is expanded */
+.sideBar:hover .btnText {
+    display: inline;
+}
+
+
+/* This ensures buttons stay in place */
+.sideBarContent {
+    flex-grow: 1; /* Takes up all available space */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center; /* Center buttons horizontally */
+    justify-content: center; /* Center buttons vertically */
+}
+
+/* App Name Styles */
+.appName {
+    width: 100%;
+    text-align: center;
+    font-family: 'Helvetica';
+    font-size: 18px;
+    font-weight: bold;
+    color: #edf2fb;
+    padding: 10px 0;
+    bottom: 0;
+    margin-top: auto;
+}
+
+/* Show short name (XPT) by default */
+.shortName {
+    display: block;
+}
+
+/* Hide full name when collapsed */
+.fullName {
+    display: none;
+}
+
+/* When expanded, show full name and hide short one */
+.sideBar:hover .shortName {
+    display: none;
+}
+
+.sideBar:hover .fullName {
+    display: block;
+}
+
+
+/*Sidebar Buttons Animations*/
+.sideBar .Btn {
+    transition: transform 0.3s ease; /* Smooth scaling for the entire button */
+    display: inline-flex; /* Ensure icon and text scale together */
+    align-items: center; /* Vertically align icon and text */
+}
+
+    .sideBar .Btn:hover {
+        transform: scale(1.2); /* Scale up the whole button on hover */
+        /* If you want to change background color on hover, do it here */
+        /* background-color: #your-hover-background-color; */
+    }
+
+    .sideBar .Btn i { /* Styles for the icon - optional */
+        margin-right: 8px; /* Add some spacing between icon and text */
+    }
+
+/* Optional: If you want to scale the text a bit more or independently */
+.sideBar .btnText {
+    transition: transform 0.2s ease;
+}
+
+.sideBar .Btn:hover .btnText {
+    /* transform: scale(1.1);  If you want to scale text more than the button */
 }

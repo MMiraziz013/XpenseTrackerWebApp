@@ -26,8 +26,7 @@ html {
 }*/
 
 body {
-    
-    background-color: #7baede;
+    background-color: #edf2fb;
 }
 
 .e-bigger {
@@ -52,7 +51,7 @@ body {
 }
 
     .e-grid .e-gridcontent, .e-grid .e-table {
-        background-color: #d4f2ff; /*Tavble row background colors*/
+        background-color: #e2eafc; /*Tavble row background colors*/
     }
 
     .e-grid .e-gridheader {
@@ -60,20 +59,40 @@ body {
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
         padding: 10px;
-        background-color: #ffffff; /*header background color*/
+        background-color: #e2eafc; /*header background color*/
     }
 
         .e-grid .e-gridheader .e-headercell {
-            background-color: #9dcdef; /*header foreground color*/
+            background-color: #e2eafc; /*header foreground color*/
         }
 
     .e-grid .e-gridpager {
-        background-color: #1a222b;
+        background-color: #e2eafc;
     }
 
+        .e-grid .e-gridpager .e-prevpagedisabled,
+        .e-grid .e-gridpager .e-prevpage,
+        .e-grid .e-gridpager .e-nextpage,
+        .e-grid .e-gridpager .e-nextpagedisabled,
+        .e-grid .e-gridpager .e-lastpagedisabled,
+        .e-grid .e-gridpager .e-lastpage,
+        .e-grid .e-gridpager .e-firstpage,
+        .e-grid .e-gridpager .e-firstpagedisabled {
+            background-color: #e2eafc;
+        }
+
+        .e-grid .e-gridpager .e-numericitem {
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+            .e-grid .e-gridpager .e-numericitem:hover {
+                background-color: #e2eafc;
+                color: #e2eafc;
+            }
+
     .e-grid .e-pagercontainer {
-        border: none;
-        background-color: #1a222b;
+        border: 2px solid #abc4ff;
     }
 
     .e-grid .e-content table {
@@ -111,11 +130,13 @@ body {
 /*Widget*/
 .widget {
     border-radius: 1rem;
-    background-color: #d4f2ff;
+    background-color: #e2eafc;
+    box-shadow: 2.5px 2.5px 20px rgba(0, 0, 0, 0.3)
+    /*box-shadow: 2.5px 2.5px 20px rgba(0, 0, 0, 0.3)*/ /*, -2.5px -2.5px 20px rgba(0, 0, 0, 0.3);*/
 }
 
     .widget.summary > div:first-child {
-        background-color: #3055a3;
+        background-color: #abc4ff;
         padding: 1rem;
         border-top-left-radius: 1rem;
         border-bottom-left-radius: 1rem;
@@ -123,22 +144,25 @@ body {
 
         .widget.summary > div:first-child i {
             font-weight: bold;
+            box-shadow: 2.5px 2.5px 20px rgba(0, 0, 0, 0.3)
         }
 
     .widget.income > div:first-child {
-        color: #65da41;
+        color: #c5ecac;
     }
 
     .widget.expense > div:first-child {
-        color: #ff4e48;
+        color: #ff7497;
     }
 
     .widget.balance > div:first-child {
-        color: #2aa1ff;
+        color: #e2eafc;
     }
 
     .widget.chart {
         padding: 5px;
+        box-shadow: 7.6px 15.2px 15.2px hsl(0deg 0% 0% / 0.26);
+        /*, -2.5px -2.5px 20px rgba(0, 0, 0, 0.3);*/
     }
 
 /*@media screen and (max-width: 1560px) {*/ /* Approximation for a 15.6-inch screen */
