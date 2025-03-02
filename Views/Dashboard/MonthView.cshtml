@@ -5,7 +5,6 @@
     ViewData["isDashboard"] = true;
 
     var palette = new string[] { "#76a7f4", "#6b8ce6", "#6071d7", "#8671e1", "#ab71eb", "#b188ef", "#b69ff2", "#bcb6f6", "#c1cdf9" };
-    var doughnutChartRadius = new string[] { "100", "118.7", "124.6", "137.5", "150.8", "155.5", "160.6", "165.8", "170" };
 }
 
 <div class="sideBar" id="sideBar">
@@ -16,7 +15,7 @@
         <p class="buttonText"> </p>
 
         <button class="Btn" data-controller="Transaction" data-action="Index" style="border:none; background-color:inherit; font-size: 20px; color:#edf2fb;">
-                <i class="fas fa-exchange-alt"></i> <span class="btnText">Transactions</span>
+            <i class="fas fa-exchange-alt"></i> <span class="btnText">Transactions</span>
         </button>
         <p class="buttonText"> </p>
 
@@ -25,7 +24,7 @@
         </button>
 
     </div>
-    
+
 
     <!-- Application Name at Bottom -->
     <div class="appName">
@@ -34,22 +33,21 @@
     </div>
 </div>
 
-@*Right Sidebar*@
 <div class="rightSideBar" id="rightSideBar">
     <div class="sideBarContent">
-        
+
         <button class="Btn" data-controller="Dashboard" data-action="TodayView">
             <i class="fa-solid fa-calendar-day" style="font-size: 25px;"></i>
         </button>
         <p class="buttonText">Today</p>
-       
+
         <button class="Btn" data-controller="Dashboard" data-action="Index">
-            <i class="fa-solid fa-calendar-week" style="font-size: 25px; color:#ff7497 !important"></i>
+            <i class="fa-solid fa-calendar-week" style="font-size: 25px;"></i>
         </button>
         <p class="buttonText">Week</p>
 
         <button class="Btn" data-controller="Dashboard" data-action="MonthView">
-            <i class="fa-solid fa-calendar-days" style="font-size: 25px;"></i>
+            <i class="fa-solid fa-calendar-days" style="font-size: 25px; color:#ff7497 !important"></i>
         </button>
         <p class="buttonText">Month</p>
     </div>
@@ -64,7 +62,6 @@
 </div>
 
 
-
 @*Summary Widgets*@
 <div class="row mb-4">
 
@@ -75,7 +72,7 @@
             </div>
             <div class="d-flex flex-column m-auto py-3">
                 <span class="lead">Total Income</span>
-                <h1 class="display-6 fw-bold">@ViewBag.TotalIncome</h1>
+                <h1 class="display-6 fw-bold">@ViewBag.TotalIncomeMonth</h1>
             </div>
         </div>
     </div>
@@ -87,7 +84,7 @@
             </div>
             <div class="d-flex flex-column m-auto py-3">
                 <span class="lead">Total Expense</span>
-                <h1 class="display-6 fw-bold">@ViewBag.TotalExpense</h1>
+                <h1 class="display-6 fw-bold">@ViewBag.TotalExpenseMonth</h1>
             </div>
         </div>
     </div>
@@ -99,7 +96,7 @@
             </div>
             <div class="d-flex flex-column m-auto py-3">
                 <span class="lead">Total Balance</span>
-                <h1 class="display-6 fw-bold">@ViewBag.Balance</h1>
+                <h1 class="display-6 fw-bold">@ViewBag.BalanceMonth</h1>
             </div>
         </div>
     </div>
@@ -110,22 +107,22 @@
     <div class="col-md-4">
         <div class="widget chart">
             <div class="p-4">
-                <h5 class="fw-bold">Expenses by Category</h5>
+                <h5 class="fw-bold">Expenses by Category - This Month</h5>
 
             </div>
             <ejs-accumulationchart id="doughnutchart" background="#e2eafc" enableSmartLabels>
                 <e-accumulation-series-collection>
-                    <e-accumulation-series dataSource="@ViewBag.DougnutChartData" 
-                        xName="categoryTitleWithIcon" yName="amount" 
+                    <e-accumulation-series dataSource="@ViewBag.DougnutChartDataMonth"
+                                           xName="categoryTitleWithIcon" yName="amount"
                                            innerRadius="60%" legendShape="Circle" palettes="@palette">
 
-                        <e-accumulationseries-datalabel name="formattedAmount" visible ></e-accumulationseries-datalabel>
+                        <e-accumulationseries-datalabel name="formattedAmount" visible></e-accumulationseries-datalabel>
                     </e-accumulation-series>
                 </e-accumulation-series-collection>
                 <e-accumulationchart-legendsettings position="Top">
                     <e-legendsettings-textstyle color="black" fontFamily="Calibri" size="1rem"></e-legendsettings-textstyle>
                 </e-accumulationchart-legendsettings>
-                <e-accumulationchart-tooltipsettings enable >
+                <e-accumulationchart-tooltipsettings enable>
                     <e-tooltipsettings-textstyle color="white" fontFamily="Calibri"> </e-tooltipsettings-textstyle>
                 </e-accumulationchart-tooltipsettings>
             </ejs-accumulationchart>
@@ -134,34 +131,35 @@
     <div class="col-md-8">
         <div class="widget chart">
             <div class="p-4">
-                <h5 class="fw-bold">Income vs Expenses - Last 7 Days</h5>
+                <h5 class="fw-bold">Income vs Expenses - This Month</h5>
 
             </div>
-           <ejs-chart id="spline-chart" >
-               <e-chart-primaryxaxis valueType="Category"></e-chart-primaryxaxis>
-               <e-chart-primaryyaxis></e-chart-primaryyaxis>
-               <e-chart-chartarea>
-                   <e-chartarea-border width="0"></e-chartarea-border>
-               </e-chart-chartarea>
-               <e-series-collection>
-                   <e-series dataSource="@ViewBag.SplineChartData" xName="day"
-                              yName="income" name="Income" 
-                              type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline" fill="#6071d7">
-
-                   </e-series>
-                    <e-series dataSource="@ViewBag.SplineChartData" xName="day"
-                              yName="expense" name="Expense" 
-                              type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline" fill="#ff7497">
+            <ejs-chart id="spline-chart">
+                <e-chart-primaryxaxis valueType="Category"></e-chart-primaryxaxis>
+                <e-chart-primaryyaxis></e-chart-primaryyaxis>
+                <e-chart-chartarea>
+                    <e-chartarea-border width="0"></e-chartarea-border>
+                </e-chart-chartarea>
+                <e-series-collection>
+                    <e-series dataSource="@ViewBag.ColumnChartDataMonth" xName="day"
+                              yName="income" name="Income"
+                              type="@Syncfusion.EJ2.Charts.ChartSeriesType.Column" fill="#6071d7">
 
                     </e-series>
-               </e-series-collection>
-               <e-chart-legendsettings position="Top" alignment="Far">
+                    <e-series dataSource="@ViewBag.ColumnChartDataMonth" xName="day"
+                              yName="expense" name="Expense"
+                              type="@Syncfusion.EJ2.Charts.ChartSeriesType.Column" fill="#ff7497">
+
+                    </e-series>
+                </e-series-collection>
+                <e-chart-legendsettings position="Top" alignment="Far">
                     <e-legendsettings-textstyle color="black" fontFamily="Calibri" size="1rem"></e-legendsettings-textstyle>
                 </e-chart-legendsettings>
                 <e-chart-tooltipsettings enable shared>
                     <e-tooltipsettings-textstyle color="white" fontFamily="Calibri"> </e-tooltipsettings-textstyle>
                 </e-chart-tooltipsettings>
-           </ejs-chart>
+            </ejs-chart>
+        </div>
         </div>
     </div>
 </div>
