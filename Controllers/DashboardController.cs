@@ -274,6 +274,7 @@ namespace XpenseTrackerWebApp.Controllers
 
             return View();
         }
+        
     }
 
     public class SplineChartData

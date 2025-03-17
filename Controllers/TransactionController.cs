@@ -22,6 +22,27 @@ namespace XpenseTrackerWebApp.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Transactions.Include(t => t.Category);
+
+            DateTime StardDate = new(DateTime.Today.Year, DateTime.Today.Month, 1);
+
+            DateTime EndDate = DateTime.Today;
+
+            List<Transaction> SelectedTransactions = await _context.Transactions
+                .Include(x => x.Category)
+                .Where(y => y.Date >= StardDate && y.Date <= EndDate)
+                .ToListAsync();
+
+            //Total Expense
+            int TotalExpense = SelectedTransactions
+                .Where(x => x.Category.Type == "Expense")
+                .Sum(x => x.Amount);
+            ViewBag.TotalExpenseMonth = TotalExpense.ToString("C0");
+
+            int ExpensesLimit = await _context.Settings
+                .Select(s => s.ExpensesLimit)
+                .FirstOrDefaultAsync();
+            ViewBag.ExpensesLimit = ExpensesLimit;
+
             return View(await applicationDbContext.ToListAsync());
         }
 
